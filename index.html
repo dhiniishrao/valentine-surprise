@@ -45,6 +45,12 @@ img {
   margin-top: 20px;
   border-radius: 15px;
 }
+
+.message {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #ffe6f2;
+}
 </style>
 </head>
 
@@ -63,8 +69,9 @@ img {
 <h2>Baby poo edy hehe 💩</h2>
 <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExeGFtNWs4bmhsZGcyM2FyeHZwbW11anh4eDl6anduZjEwaHBxYzR2aCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/yEZjzglgjrMUo/giphy.gif" width="250"> 
 <br>
-<button onclick="alert('Go poo first baby 😂 then come back');">No</button>
-<button onclick="(()=>{ alert('Baby poo like this hippo ah hehe 😂'); nextSection(3); })();">Yes</button>
+<button onclick="showMessage('Go poo first baby 😂 then come back', 'msg2')">No</button>
+<button onclick="(()=>{ showMessage('Baby poo like this hippo ah hehe 😂', 'msg2'); nextSection(3); })();">Yes</button>
+<p id="msg2" class="message"></p>
 <br>
 <button onclick="prevSection(1)">Back</button>
 </div>
@@ -74,9 +81,10 @@ img {
 <h2>Do you feel like I truly understand you?</h2>
 <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdG41YnEyeDU2emF1c2YyZWtxa3p2aXpkZHNjNzYybG42bjNpMjUwNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/TjSPQgowhhJdHgvnwA/giphy.gif" width="250"> 
 <br>
-<button onclick="alert('Hmm I don\'t want to proceed pooo 😭');">No</button>
+<button onclick="showMessage('Hmm I don\'t want to proceed pooo 😭', 'msg3')">No</button>
 <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMW13YTVrYnVtc3MyM3R1OXlvZzdmeGpmZjlrMnJoZmxmdTNlbHJueCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/SvqEe2LC1rYj8HnSss/giphy.gif" width="250"> 
-<button onclick="(()=>{ alert('Thank you baby 😭❤️'); nextSection(4); })();">Yes</button>
+<button onclick="(()=>{ showMessage('Thank you baby 😭❤️', 'msg3'); nextSection(4); })();">Yes</button>
+<p id="msg3" class="message"></p>
 <br>
 <button onclick="prevSection(2)">Back</button>
 </div>
@@ -86,8 +94,9 @@ img {
 <h2>Do you feel safer when you’re in my arms? 🤗</h2>
 <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExbW5waG5wbWN2eWd5bHBlMWc5MzZiY3p5MmM3aDkxdzJuaHc2dGV4ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/q174RZ1Um4j72/giphy.gif" width="250"> 
 <br>
-<button onclick="alert('Hmm I don\'t want to proceed pooo 😭');">No</button>
-<button onclick="(()=>{ alert('Always daa kiss 😘'); nextSection(5); })();">Yes</button>
+<button onclick="showMessage('Hmm I don\'t want to proceed pooo 😭', 'msg4')">No</button>
+<button onclick="(()=>{ showMessage('Always daa 😘', 'msg4'); nextSection(5); })();">Yes</button>
+<p id="msg4" class="message"></p>
 <br>
 <button onclick="prevSection(3)">Back</button>
 </div>
@@ -97,7 +106,8 @@ img {
 <h2>Am I scolding you a lot? 🥺</h2>
 <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHJyNm52N2FodzJwdWNuam1uY2IxOGlnaGIycWRhczVoaXVqMDhuZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/4V3RuU0zSq1SC8Hh4x/giphy.gif" width="250"> 
 <br>
-<button onclick="(()=>{ alert('Sorry daa 😭 I will change it ❤️'); nextSection(6); })();">Yes</button>
+<button onclick="(()=>{ showMessage('Sorry daa 😭 I will change it ❤️', 'msg5'); nextSection(6); })();">Yes</button>
+<p id="msg5" class="message"></p>
 <br>
 <button onclick="prevSection(4)">Back</button>
 </div>
@@ -119,14 +129,16 @@ img {
 <h2>Will you be my Valentine? ❤️</h2>
 <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExamZxZm9pdW5udXBldXlqeXB5NDlsZWNkbjl4bHh0b2w0d2FubnRlMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1wmOyZYoGzz003R03Y/giphy.gif" width="250"> 
 <br>
-<button onclick="alert('Happy Valentine baby ❤️...Chello baby Muahh💋 More Valentines to go da😘');">Yes</button>
+<button onclick="showMessage('Happy Valentine baby ❤️...Chello baby Muahh💋 More Valentines to go da😘', 'msg7')">Yes</button>
 <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2V3Znp1dnVnN3J3ajVmaHNwejdqcm5lY3ZxOHNjbTNwMGtjdDlzZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/t1O7EJSUQfgNveFVgd/giphy.gif" width="250"> 
-<button onclick="alert('Click yes pls hehe 😌');">No</button>
+<button onclick="showMessage('Click yes pls hehe 😌', 'msg7')">No</button>
+<p id="msg7" class="message"></p>
 <br>
 <button onclick="prevSection(6)">Back</button>
 </div>
 
 <script>
+// Section navigation
 function nextSection(num) {
   document.querySelectorAll(".section").forEach(div => div.style.display = "none");
   document.getElementById("section" + num).style.display = "block";
@@ -135,6 +147,11 @@ function nextSection(num) {
 function prevSection(num) {
   document.querySelectorAll(".section").forEach(div => div.style.display = "none");
   document.getElementById("section" + num).style.display = "block";
+}
+
+// Show message inside section
+function showMessage(text, id) {
+  document.getElementById(id).innerText = text;
 }
 </script>
 

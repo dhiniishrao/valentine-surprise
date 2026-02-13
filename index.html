@@ -64,7 +64,7 @@ img {
 <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExeGFtNWs4bmhsZGcyM2FyeHZwbW11anh4eDl6anduZjEwaHBxYzR2aCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/yEZjzglgjrMUo/giphy.gif" width="250"> 
 <br>
 <button onclick="alert('Go poo first baby 😂 then come back');">No</button>
-<button onclick="alert('Baby poo like this hippo ah hehe 😂 '); nextSection(3);">Yes</button>
+<button onclick="(()=>{ alert('Baby poo like this hippo ah hehe 😂'); nextSection(3); })();">Yes</button>
 <br>
 <button onclick="prevSection(1)">Back</button>
 </div>
@@ -76,7 +76,7 @@ img {
 <br>
 <button onclick="alert('Hmm I don\'t want to proceed pooo 😭');">No</button>
 <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMW13YTVrYnVtc3MyM3R1OXlvZzdmeGpmZjlrMnJoZmxmdTNlbHJueCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/SvqEe2LC1rYj8HnSss/giphy.gif" width="250"> 
-<button onclick="alert('Thank you baby 😭❤️'); nextSection(4);">Yes</button>
+<button onclick="(()=>{ alert('Thank you baby 😭❤️'); nextSection(4); })();">Yes</button>
 <br>
 <button onclick="prevSection(2)">Back</button>
 </div>
@@ -87,7 +87,7 @@ img {
 <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExbW5waG5wbWN2eWd5bHBlMWc5MzZiY3p5MmM3aDkxdzJuaHc2dGV4ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/q174RZ1Um4j72/giphy.gif" width="250"> 
 <br>
 <button onclick="alert('Hmm I don\'t want to proceed pooo 😭');">No</button>
-<button onclick="nextSection(5)">Yes</button>
+<button onclick="(()=>{ alert('Always daa kiss 😘'); nextSection(5); })();">Yes</button>
 <br>
 <button onclick="prevSection(3)">Back</button>
 </div>
@@ -97,7 +97,7 @@ img {
 <h2>Am I scolding you a lot? 🥺</h2>
 <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHJyNm52N2FodzJwdWNuam1uY2IxOGlnaGIycWRhczVoaXVqMDhuZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/4V3RuU0zSq1SC8Hh4x/giphy.gif" width="250"> 
 <br>
-<button onclick="alert('Sorry daa 😭 I will change it ❤️'); nextSection(6);">Yes</button>
+<button onclick="(()=>{ alert('Sorry daa 😭 I will change it ❤️'); nextSection(6); })();">Yes</button>
 <br>
 <button onclick="prevSection(4)">Back</button>
 </div>
@@ -128,17 +128,15 @@ img {
 
 <script>
 function nextSection(num) {
-  document.querySelectorAll(".section, #section1").forEach(div => div.style.display = "none");
+  document.querySelectorAll(".section").forEach(div => div.style.display = "none");
   document.getElementById("section" + num).style.display = "block";
 }
 
 function prevSection(num) {
-  document.querySelectorAll(".section, #section1").forEach(div => div.style.display = "none");
+  document.querySelectorAll(".section").forEach(div => div.style.display = "none");
   document.getElementById("section" + num).style.display = "block";
 }
 </script>
 
 </body>
 </html>
-
-

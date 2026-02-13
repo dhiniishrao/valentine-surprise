@@ -16,16 +16,26 @@ body {
   color: white;
 }
 
+/* Fade-in animation for sections */
 .section {
   display: none;
-  background-color: rgba(0,0,0,0.5); /* semi-transparent background so text is readable */
+  background-color: rgba(0,0,0,0.5); 
   padding: 20px;
   border-radius: 15px;
   margin: 50px auto;
   width: 80%;
   max-width: 500px;
+  opacity: 0;
+  transition: opacity 0.8s ease;
 }
 
+/* When visible, fade-in effect */
+.section.show {
+  display: block;
+  opacity: 1;
+}
+
+/* Buttons playful styling */
 button {
   padding: 10px 20px;
   font-size: 18px;
@@ -35,27 +45,50 @@ button {
   cursor: pointer;
   background-color: #ff4da6;
   color: white;
+  transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
 button:hover {
   background-color: #ff1a8c;
+  transform: scale(1.1);
+}
+
+/* Bounce effect when clicked */
+button:active {
+  animation: bounce 0.3s;
+}
+
+@keyframes bounce {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
 }
 
 img {
   margin-top: 20px;
   border-radius: 15px;
 }
+.message {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #ffe6f2;
+}
 </style>
 </head>
 
 <body>
 
+<!-- Background music -->
+<audio id="bgMusic" loop autoplay>
+  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+</audio>
+
 <!-- SECTION 1 -->
-<div id="section1" class="section" style="display: block;">
+<div id="section1" class="section show">
 <h1>Hello baby sayang ❤️</h1>
 <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExbnJqbWR5NmhucXpsbnJ5N3ByYWVwc3cwN3oybGRoNTdyYnlkNHJoMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/IqojY0rgVWfOE/giphy.gif" width="250">
 <p>This is made for you, hope you like it 😌</p>
-<button onclick="nextSection(2)">Let's dive into some questions</button>
+<button onclick="nextSection(2)">Let's dive into some questions 😘</button>
 </div>
 
 <!-- SECTION 2 -->
@@ -63,10 +96,11 @@ img {
 <h2>Baby poo edy hehe 💩</h2>
 <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExeGFtNWs4bmhsZGcyM2FyeHZwbW11anh4eDl6anduZjEwaHBxYzR2aCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/yEZjzglgjrMUo/giphy.gif" width="250"> 
 <br>
-<button onclick="alert('Go poo first baby 😂 then come back');">No</button>
-<button onclick="(()=>{ alert('Baby poo like this hippo ah hehe 😂'); nextSection(3); })();">Yes</button>
+<button onclick="showMessage('Go poo first baby 😂 then come back', 'msg2')">No 💔</button>
+<button onclick="(()=>{ showMessage('Baby poo like this hippo ah hehe 😂', 'msg2'); nextSection(3); })();">Yes 😘</button>
+<p id="msg2" class="message"></p>
 <br>
-<button onclick="prevSection(1)">Back</button>
+<button onclick="prevSection(1)">Back 🔙</button>
 </div>
 
 <!-- SECTION 3 -->
@@ -74,11 +108,11 @@ img {
 <h2>Do you feel like I truly understand you?</h2>
 <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdG41YnEyeDU2emF1c2YyZWtxa3p2aXpkZHNjNzYybG42bjNpMjUwNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/TjSPQgowhhJdHgvnwA/giphy.gif" width="250"> 
 <br>
-<button onclick="alert('Hmm I don\'t want to proceed pooo 😭');">No</button>
-<img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMW13YTVrYnVtc3MyM3R1OXlvZzdmeGpmZjlrMnJoZmxmdTNlbHJueCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/SvqEe2LC1rYj8HnSss/giphy.gif" width="250"> 
-<button onclick="(()=>{ alert('Thank you baby 😭❤️'); nextSection(4); })();">Yes</button>
+<button onclick="showMessage('Hmm I don\'t want to proceed pooo 😭', 'msg3')">No 💔</button>
+<button onclick="(()=>{ showMessage('Thank you baby 😭❤️', 'msg3'); nextSection(4); })();">Yes 😘</button>
+<p id="msg3" class="message"></p>
 <br>
-<button onclick="prevSection(2)">Back</button>
+<button onclick="prevSection(2)">Back 🔙</button>
 </div>
 
 <!-- SECTION 4 -->
@@ -86,10 +120,11 @@ img {
 <h2>Do you feel safer when you’re in my arms? 🤗</h2>
 <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExbW5waG5wbWN2eWd5bHBlMWc5MzZiY3p5MmM3aDkxdzJuaHc2dGV4ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/q174RZ1Um4j72/giphy.gif" width="250"> 
 <br>
-<button onclick="alert('Hmm I don\'t want to proceed pooo 😭');">No</button>
-<button onclick="(()=>{ alert('Always daa 😘'); nextSection(5); })();">Yes</button>
+<button onclick="showMessage('Hmm I don\'t want to proceed pooo 😭', 'msg4')">No 💔</button>
+<button onclick="(()=>{ showMessage('Always daa kiss 😘', 'msg4'); playKissSound(); nextSection(5); })();">Yes 😘</button>
+<p id="msg4" class="message"></p>
 <br>
-<button onclick="prevSection(3)">Back</button>
+<button onclick="prevSection(3)">Back 🔙</button>
 </div>
 
 <!-- SECTION 5 -->
@@ -97,9 +132,10 @@ img {
 <h2>Am I scolding you a lot? 🥺</h2>
 <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHJyNm52N2FodzJwdWNuam1uY2IxOGlnaGIycWRhczVoaXVqMDhuZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/4V3RuU0zSq1SC8Hh4x/giphy.gif" width="250"> 
 <br>
-<button onclick="(()=>{ alert('Sorry daa 😭 I will change it ❤️'); nextSection(6); })();">Yes</button>
+<button onclick="(()=>{ showMessage('Sorry daa 😭 I will change it ❤️', 'msg5'); nextSection(6); })();">Yes 😘</button>
+<p id="msg5" class="message"></p>
 <br>
-<button onclick="prevSection(4)">Back</button>
+<button onclick="prevSection(4)">Back 🔙</button>
 </div>
 
 <!-- SECTION 6 -->
@@ -111,7 +147,7 @@ img {
 <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZWk5OWt2Z2tnMTA0YTY3cTB5NWl3MWMyeTNvZzZmeTZ0MGFnYmxoYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/paMVbhw7bnZLi/giphy.gif" width="250"> 
 <button onclick="nextSection(7)">Nervous but cute 😳</button>
 <br>
-<button onclick="prevSection(5)">Back</button>
+<button onclick="prevSection(5)">Back 🔙</button>
 </div>
 
 <!-- SECTION 7 -->
@@ -119,22 +155,38 @@ img {
 <h2>Will you be my Valentine? ❤️</h2>
 <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExamZxZm9pdW5udXBldXlqeXB5NDlsZWNkbjl4bHh0b2w0d2FubnRlMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1wmOyZYoGzz003R03Y/giphy.gif" width="250"> 
 <br>
-<button onclick="alert('Happy Valentine baby ❤️...Chello baby Muahh💋 More Valentines to go da😘');">Yes</button>
+<button onclick="showMessage('Happy Valentine baby ❤️...Chello baby Muahh💋 More Valentines to go da😘', 'msg7')">Yes 😘</button>
 <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2V3Znp1dnVnN3J3ajVmaHNwejdqcm5lY3ZxOHNjbTNwMGtjdDlzZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/t1O7EJSUQfgNveFVgd/giphy.gif" width="250"> 
-<button onclick="alert('Click yes pls hehe 😌');">No</button>
+<button onclick="showMessage('Click yes pls hehe 😌', 'msg7')">No 💔</button>
+<p id="msg7" class="message"></p>
 <br>
-<button onclick="prevSection(6)">Back</button>
+<button onclick="prevSection(6)">Back 🔙</button>
 </div>
 
 <script>
+// Section navigation with fade-in
 function nextSection(num) {
-  document.querySelectorAll(".section").forEach(div => div.style.display = "none");
-  document.getElementById("section" + num).style.display = "block";
+  document.querySelectorAll(".section").forEach(div => {
+    div.classList.remove('show');
+  });
+  setTimeout(() => {
+    document.getElementById("section" + num).classList.add('show');
+  }, 50); // small delay for transition
 }
 
 function prevSection(num) {
-  document.querySelectorAll(".section").forEach(div => div.style.display = "none");
-  document.getElementById("section" + num).style.display = "block";
+  nextSection(num);
+}
+
+// Show message inside section
+function showMessage(text, id) {
+  document.getElementById(id).innerText = text;
+}
+
+// Play kiss sound on Section 4 Yes
+function playKissSound() {
+  const audio = new Audio('https://www.soundjay.com/human/sounds/kiss-01.mp3');
+  audio.play();
 }
 </script>
 
